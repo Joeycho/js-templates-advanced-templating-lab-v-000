@@ -9,6 +9,70 @@
   <body>
     <main id="main">
     </main>
+    <script id="recipe-form-template"
+    type="text/x-handlebars-template">
+    <form
+    onsubmit="updateRecipe(); return false;">
+      Name:<input type="text" id="tname"><br>
+      Description:<input type="text" id="tdescription"><br>
+      Ingredients:<br>
+
+      ingredient one: <input type="text" name='tingredients'><br>
+      ingredient two: <input type="text" name='tingredients'><br>
+      ingredient three: <input type="text" name='tingredients'><br>
+      ingredient four: <input type="text" name='tingredients'><br>
+      ingredient five: <input type="text" name='tingredients'><br>
+
+      <input type="submit">
+
+    </form>
+    </script>
+
+    <script id="recipe-form"
+    type="text/x-handlebars-template">
+    <form
+    onsubmit="createRecipe(); return false;">
+      Name:<input type="text" id="name"><br>
+      Description:<input type="text" id="description"><br>
+      Ingredients:<br>
+
+      ingredient one: <input type="text" name='ingredients'><br>
+      ingredient two: <input type="text" name='ingredients'><br>
+      ingredient three: <input type="text" name='ingredients'><br>
+      ingredient four: <input type="text" name='ingredients'><br>
+      ingredient five: <input type="text" name='ingredients'><br>
+
+      <input type="submit">
+
+    </form>
+
+    </script>
+    <script id="recipe-template"
+    type="text/x-handlebars-template">
+      <article>
+        <header><h3>Recipe: {{name}}</h3></header>
+         {{> recipeDetailsPartial }}
+        <footer>  <a href="#" onclick="displayEditForm();">Edit Recipe</a></footer>
+      </article>
+    </script>
+
+    <script id="recipe-details-partial"
+    type="text/x-handlebars-template">
+        <p>{{description}}</p>
+        <p>{{#each ingredients}}</p>
+        <li>{{displayIngredient this}}</li>
+        {{/each}}
+    </script>
+
+    <script id="recipe-form-partial"
+    type="text/x-handlebars-template">
+        <p>{{description}}</p>
+        <p>{{#each ingredients}}</p>
+        <li>{{displayIngredient this}}</li>
+        {{/each}}
+    </script>
+
+
     <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
     <script src="index.js"></script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
